@@ -54,54 +54,54 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1  # You'll likely have only one site initially
 
-LOGIN_REDIRECT_URL = 'home'  # Redirect after successful login
-ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/' # Redirect after logout
+LOGIN_REDIRECT_URL = 'home'  # or any valid path or named URL
+LOGOUT_REDIRECT_URL = 'account_login'  # already correct
 
 # Optional settings for allauth:
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
-ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Or 'username', or 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'optional'  # Or 'mandatory', or 'none'
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_USERNAME_REQUIRED = True
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+# ACCOUNT_SESSION_REMEMBER = True
+# ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Or 'username', or 'email'
+# ACCOUNT_EMAIL_VERIFICATION = 'optional'  # Or 'mandatory', or 'none'
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'offline',
-        }
-    },
-    'facebook': {
-        'METHOD': 'oauth2',
-        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
-        'SCOPE': ['email', 'public_profile'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-        'INIT_PARAMS': {'cookie': True},
-        'FIELDS': [
-            'id',
-            'first_name',
-            'last_name',
-            'middle_name',
-            'name',
-            'name_formatted',
-            'picture',
-            'short_name'
-        ],
-        'EXCHANGE_TOKEN': True,
-        'LOCALE_CODE': 'en_US',
-        'VERSION': 'v19.0', # Use the latest stable version
-    },
-    'github': {
-        'SCOPE': [
-            'user',
-            'email',
-        ],
-    }
-}
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         'SCOPE': [
+#             'profile',
+#             'email',
+#         ],
+#         'AUTH_PARAMS': {
+#             'access_type': 'offline',
+#         }
+#     },
+#     'facebook': {
+#         'METHOD': 'oauth2',
+#         'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+#         'SCOPE': ['email', 'public_profile'],
+#         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+#         'INIT_PARAMS': {'cookie': True},
+#         'FIELDS': [
+#             'id',
+#             'first_name',
+#             'last_name',
+#             'middle_name',
+#             'name',
+#             'name_formatted',
+#             'picture',
+#             'short_name'
+#         ],
+#         'EXCHANGE_TOKEN': True,
+#         'LOCALE_CODE': 'en_US',
+#         'VERSION': 'v19.0', # Use the latest stable version
+#     },
+#     'github': {
+#         'SCOPE': [
+#             'user',
+#             'email',
+#         ],
+#     }
+# }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
