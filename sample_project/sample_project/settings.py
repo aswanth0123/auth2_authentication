@@ -65,6 +65,27 @@ LOGOUT_REDIRECT_URL = 'account_login'  # already correct
 # ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Or 'username', or 'email'
 # ACCOUNT_EMAIL_VERIFICATION = 'optional'  # Or 'mandatory', or 'none'
 
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SDK_URL': 'https://connect.facebook.net/en_US/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'picture',
+        ],
+        'EXCHANGE_TOKEN': True,
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v19.0',  # Match Facebook version
+    }
+}
+
 # SOCIALACCOUNT_PROVIDERS = {
 #     'google': {
 #         'SCOPE': [
